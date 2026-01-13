@@ -1,4 +1,14 @@
 ;;; doom-apprentice-theme.el --- inspired by Apprentice -*- lexical-binding: t; no-byte-compile: t; -*-
+;; Author: Nadim Edde Gomez <https://github.com/Nequo>
+;; Maintainer: Nadim Edde Gomez <https://github.com/Nequo>
+;; Source: https://github.com/romainl/Apprentice
+;;
+;;; Commentary:
+;;
+;; The Apprentice theme doomified.
+;;
+;;; Code:
+
 
 (require 'doom-themes)
 
@@ -17,8 +27,7 @@
   :type 'boolean)
 
 (defcustom doom-apprentice-comment-bg doom-apprentice-brighter-comments
-  "If non-nil, comments will have a subtle highlight to enhance their
-legibility."
+  "If non-nil, comments will have a subtle highlight to enhance their legibility."
   :group 'doom-apprentice-theme
   :type 'boolean)
 
@@ -51,38 +60,42 @@ Can be an integer to determine the exact padding."
 
    (grey       base4)
    (red        '("#af5f5f" "#af5f5f" "darkred"          ))
-   (orange     '("#ff8700" "#ff8700" "red"    ))
-   (green      '("#87af87" "#87af87" "green"        ))
+   (orange     '("#b39066" "#b39066" "red"    ))
+   (green      '("#5f875f" "#5f875f" "darkgreen"        ))
+   (light-green '("#87af87" "#87af87" "green"        ))
    (teal       '("#5fafaf" "#5fafaf" "cyan"  ))
    (yellow     '("#ffffaf" "#ffffaf" "yellow"       ))
-   (blue       '("#87afd7" "#87afd7" "blue"   ))
+   (ocre       '("#87875f" "#87875f" "darkyellow"       ))
+   (blue       '("#5f87af" "#5f87af" "darkblue"   ))
+   (light-blue '("#87afd7" "#87afd7" "blue"         ))
    (dark-blue  '("#5f87af" "#5f87af" "darkblue"         ))
    (magenta    '("#8787af" "#8787af" "magenta"))
-   (violet     '("#5f5f87" "#5f5f87" "darkmagenta"      ))
+   (dark-magenta '("#5f5f87" "#5f5f87" "darkmagenta"      ))
+   (violet     '("#af5f87" "#af5f87" "darkmagenta"      ))
    (cyan       '("#5fafaf" "#5fafaf" "cyan"   ))
    (dark-cyan  '("#5f8787" "#5f8787" "darkcyan"         ))
 
-   (highlight      blue)
-   (vertical-bar   (doom-darken base1 0.1))
+   (highlight      light-blue)
+   (vertical-bar   grey)
    (selection      dark-blue)
-   (builtin        magenta)
-   (comments       (if doom-apprentice-brighter-comments dark-cyan base5))
-   (doc-comments   (doom-lighten (if doom-apprentice-brighter-comments dark-cyan base5) 0.25))
-   (constants      violet)
-   (functions      magenta)
-   (keywords       blue)
-   (methods        cyan)
-   (operators      blue)
-   (type           yellow)
-   (strings        green)
-   (variables      (doom-lighten magenta 0.4))
+   (builtin        dark-cyan)
+   (comments       (if doom-apprentice-brighter-comments dark-cyan base6))
+   (doc-comments   (doom-lighten (if doom-apprentice-brighter-comments dark-cyan base6) 0.25))
+   (constants      orange)
+   (functions      yellow)
+   (keywords       light-blue)
+   (methods        yellow)
+   (operators      light-blue)
+   (type           magenta)
+   (strings        light-green)
+   (variables      fg)
    (numbers        orange)
    (region         `(,(doom-lighten (car bg-alt) 0.15) ,@(doom-lighten (cdr base1) 0.35)))
    (error          red)
-   (warning        yellow)
-   (success        green)
+   (warning        orange)
+   (success        light-green)
    (vc-modified    orange)
-   (vc-added       green)
+   (vc-added       light-green)
    (vc-deleted     red)
 
    (modeline-fg              fg)
@@ -101,7 +114,7 @@ Can be an integer to determine the exact padding."
       (if (integerp doom-apprentice-padded-modeline) doom-apprentice-padded-modeline 4))))
 
 
-  (((line-number &override) :foreground base4)
+  (((line-number &override) :foreground base6 :background bg-alt)
    ((line-number-current-line &override) :foreground fg)
    ((font-lock-comment-face &override)
     :background (if doom-apprentice-comment-bg (doom-lighten bg 0.05) 'unspecified))
@@ -115,7 +128,7 @@ Can be an integer to determine the exact padding."
 
    (css-proprietary-property :foreground orange)
    (css-property             :foreground green)
-   (css-selector             :foreground blue)
+   (css-selector             :foreground light-blue)
    (doom-modeline-bar :background (if doom-apprentice-brighter-modeline modeline-bg highlight))
    (doom-modeline-buffer-file :inherit 'mode-line-buffer-id :weight 'bold)
    (doom-modeline-buffer-path :inherit 'mode-line-emphasis :weight 'bold)
@@ -135,7 +148,18 @@ Can be an integer to determine the exact padding."
    (solaire-mode-line-inactive-face
     :inherit 'mode-line-inactive
     :background modeline-bg-inactive-alt
-    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-alt))))
+    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-alt)))
+
+   ;; ((font-lock-preprocessor-face &override) :foreground cyan)
+   ;; (font-lock-function-name-face :foreground yellow)
+   ;; (font-lock-variable-name-face :foreground fg)
+   ;; (font-lock-constant-face :foreground orange)
+   ;; (font-lock-string-face :foreground light-green)
+   ;; (font-lock-type-face :foreground magenta)
+   ;; (font-lock-keyword-face :foreground light-blue)
+   ;; (font-lock-builtin-face :foreground light-blue)
+   ;; (font-lock-comment-face :foreground base6)
+   )
 
   ())
 
