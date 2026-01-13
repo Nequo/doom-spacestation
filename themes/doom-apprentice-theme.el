@@ -1,4 +1,4 @@
-i;;; doom-apprentice-theme.el --- inspired by Apprentice -*- lexical-binding: t; no-byte-compile: t; -*-
+;;; doom-apprentice-theme.el --- inspired by Apprentice -*- lexical-binding: t; no-byte-compile: t; -*-
 
 (require 'doom-themes)
 
