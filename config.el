@@ -41,7 +41,12 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/org/"
+      org-agenda-files (list org-directory)
+      org-M-RET-may-split-line '((default . nil))
+      org-insert-heading-respect-content t
+      org-log-done 'time
+      org-log-into-drawer "LOGBOOK")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
